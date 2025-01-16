@@ -1,0 +1,62 @@
+﻿@page "/"
+
+<div class="sleep-calculator @(listTime.Count > 0 ? "calculated" : "")">
+	<h1>Sleep <span style="color: #703dc8;">cycle💤</span></h1>
+	<button class="btn-calculate text-center" @onclick="SleepCaculator">Calculate</button>
+	@if (listTime.Count() > 0)
+	{
+		<hr/>
+		int itemNumber = 1;
+		<div class="times-container">
+			@foreach (var item in listTime)
+			{
+				var currentTime = item;
+				if (itemNumber == 4 || itemNumber == 6)
+				{
+					<div class="time-card" style="background-color: rgb(112, 61, 200);">
+						<div class="time-label" style="color: white;">Cycle @itemNumber</div>
+						<div class="time-value">@item.ToString("HH:mm")</div>
+					</div>
+					itemNumber++;
+				}
+				else if (itemNumber == 5)
+				{
+					<div class="time-card" style="background-color: rgb(112, 61, 250);">
+						<div class="time-label" style="color: white;">Cycle @itemNumber</div>
+						<div class="time-value">@item.ToString("HH:mm")</div>
+					</div>
+					itemNumber++;
+				}
+				else
+				{
+					<div class="time-card">
+						<div class="time-label">Cycle @itemNumber</div>
+						<div class="time-value">@item.ToString("HH:mm")</div>
+					</div>
+					itemNumber++;
+				}
+			}
+		</div>
+		<hr style="margin-top: 30px;" />
+
+	}
+</div>
+
+@code {
+	public List<DateTime> listTime = new List<DateTime>();
+	private void SleepCaculator()
+	{
+		listTime.Clear();
+		DateTime tmp = DateTime.Now;
+		for (int i = 1; i <= 12; i++)
+		{
+			DateTime item = tmp.AddHours(1.5);
+			listTime.Add(item);
+			tmp = item;
+		}
+	}
+	private void clear()
+	{
+		listTime.Clear();
+	}
+}

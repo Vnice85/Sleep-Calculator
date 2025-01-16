@@ -1,0 +1,148 @@
+﻿html::-webkit-scrollbar {
+    display: none;
+}
+
+.sleep-calculator {
+    display: flex;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    height: 100vh; 
+    transition: justify-content 0.5s ease;
+    user-select: none;
+}
+
+
+    .sleep-calculator.calculated {
+        display: block;
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        font-family: 'Segoe UI', system-ui, sans-serif;
+        height: auto;
+        animation: 0.2s fade;
+    }
+    @keyframes fade {
+        0% {
+            transform: translateX(-20%);
+            opacity: 0.0;
+        }
+        25% {
+            opacity: 0.25;
+        }
+        50% {
+            opacity: 0.5;
+        }
+        75% {
+            opacity: 0.75;
+        }
+        100% {
+            transform: translateX(0%);
+            opacity: 1;
+        }
+    }
+     
+h1 {
+    color: #9ca3af;
+    text-align: center;
+    font-weight: 600;
+    font-family: Montserrat;
+    font-size: 25px !important;
+}
+
+.btn-calculate {
+    display: block;
+    width: 50%;
+    margin: 1.1rem auto;
+    padding: 1rem 2rem;
+    background: linear-gradient(45deg, #4f46e5, #7c3aed);
+    color: #ffffffbf;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 0 5px 15px rgba(124, 58, 237, 0.4);
+}
+
+
+hr {
+   border:1px solid #ffffff45;
+   opacity: 0.1;
+}
+ .btn-calculate:active {
+        transform: scale(1.1);
+    }
+
+.times-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+@media screen and (max-width: 400px)
+{
+    h1 {
+        font-size: 20px !important;
+    }
+    .times-container {
+        display: flex;
+        flex-direction: column;
+    }
+ 
+}
+
+.time-card {
+    background: #2d2d2d;
+    padding: 1rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(124, 58, 237, 0.1);
+    transition: transform 0.2s;
+    border: 1px solid #3d3d3d;
+}
+
+     .time-card:active {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(124, 58, 237, 0.4);
+        transform: scale(1.1);
+    }
+
+.time-label {
+    font-size: 0.9rem;
+    color: #9ca3af;
+    margin-bottom: 0.5rem;
+}
+
+.time-value {
+    font-size: 1.5rem;
+    color: #e2e8f0;
+    font-weight: 600;
+}
+
+@media (max-width: 640px) {
+    .sleep-calculator.calculated {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .times-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
